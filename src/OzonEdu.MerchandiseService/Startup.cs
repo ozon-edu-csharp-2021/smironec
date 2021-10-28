@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using OzonEdu.MerchandiseService.Infrastructure.Filters;
+using OzonEdu.MerchandiseService.Infrastructure.Middlewares;
 
 namespace OzonEdu.MerchandiseService
 {
@@ -8,12 +10,16 @@ namespace OzonEdu.MerchandiseService
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
-            app.UseEndpoints(endpoints => { });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }
