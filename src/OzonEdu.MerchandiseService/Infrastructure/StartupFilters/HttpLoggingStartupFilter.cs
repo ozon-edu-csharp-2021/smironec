@@ -11,8 +11,11 @@ namespace OzonEdu.MerchandiseService.Infrastructure.StartupFilters
         {
             return app =>
             {
-                app.UseMiddleware<RequestLoggingMiddleware>();
-                app.UseMiddleware<ResponseLoggingMiddleware>();
+                app.UseWhen(context => context.Request.ContentType != "application/grpc", configuration =>
+                {
+                    configuration.UseMiddleware<RequestLoggingMiddleware>();
+                    configuration.UseMiddleware<ResponseLoggingMiddleware>();
+                });
                 
                 next(app);
             };
