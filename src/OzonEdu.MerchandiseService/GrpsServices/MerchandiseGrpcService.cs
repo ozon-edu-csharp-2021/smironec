@@ -7,15 +7,15 @@ namespace OzonEdu.MerchandiseService.GrpsServices
 {
     public class MerchandiseGrpcService : MerchandiseServiceGrpc.MerchandiseServiceGrpcBase
     {
-        public override Task<OrderMerchResponse> OrderMerch(OrderMerchRequest request, ServerCallContext context)
+        public override async Task<OrderMerchResponse> OrderMerch(OrderMerchRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new OrderMerchResponse());
+            return new OrderMerchResponse();
 
         }
 
-        public override Task<GetIssuedMerchInfoResponse> GetIssuedMerchInfo(GetIssuedMerchInfoRequest request, ServerCallContext context)
+        public override async Task<GetIssuedMerchInfoResponse> GetIssuedMerchInfo(GetIssuedMerchInfoRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new GetIssuedMerchInfoResponse());
+            return new GetIssuedMerchInfoResponse();
         }
     }
 }
