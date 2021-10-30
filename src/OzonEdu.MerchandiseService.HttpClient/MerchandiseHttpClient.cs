@@ -17,9 +17,9 @@ namespace OzonEdu.MerchandiseService.HttpClient
             _httpClient = httpClient;
         }
         
-        public async Task<MerchOrderResponse> OrderMerch(long employeeId, MerchOrderViewModel merchOrderViewModel, CancellationToken token)
+        public async Task<MerchOrderResponse> OrderMerch(long employeeId, OrderMerchRequest orderMerchRequest, CancellationToken token)
         {
-            var requestBody = JsonSerializer.Serialize(merchOrderViewModel);
+            var requestBody = JsonSerializer.Serialize(orderMerchRequest);
             var requestContent = new StringContent(requestBody, Encoding.UTF8, requestBody);
             
             using var response = await _httpClient.PostAsync($"v1/api/epmloyee/{employeeId}/merch", requestContent, token);
