@@ -1,6 +1,6 @@
 ﻿namespace OzonEdu.MerchandiseService.HttpModels
 {
-    public class MerchOrderResponse
+    public class V1MerchOrderResponse
     {
         
     }

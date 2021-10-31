@@ -7,17 +7,17 @@ using OzonEdu.MerchandiseService.HttpModels;
 namespace OzonEdu.MerchandiseService.Controllers
 {
     [ApiController]
-    [Route("v1/api/Merchandise")]
+    [Route("v1/api/merchandise")]
     public class MerchandiseController : ControllerBase
     {
-        [HttpPost("OrderMerch")]
-        public async Task<ActionResult<MerchOrderResponse>> OrderMerch(OrderMerchRequest orderMerchRequest, CancellationToken token)
+        [HttpPost("order-merch")]
+        public async Task<ActionResult<V1MerchOrderResponse>> OrderMerch(V1OrderMerchRequest orderMerchRequest, CancellationToken token)
         {
             return Ok();
         }
         
-        [HttpPost("GetIssuedMerchInfo")]
-        public async Task<ActionResult<IssuedMerchInfoResponse>> GetIssuedMerchInfo(GetIssuedMerchRequest getIssuedMerchRequest, CancellationToken token)
+        [HttpPost("get-issued-merch-info")]
+        public async Task<ActionResult<V1IssuedMerchInfoResponse>> GetIssuedMerchInfo(V1GetIssuedMerchRequest getIssuedMerchRequest, CancellationToken token)
         {
             return Ok();
         }
